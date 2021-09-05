@@ -33,4 +33,11 @@ func main() {
 
 	fmt.Println(range1, range2)
 
+	// format specifiers strings with var in one line
+	fmt.Printf("my age is %v and my name is %v \n", ageOne, nameOne)
+
+	// saving formatted string into var
+	savedString := fmt.Sprintf("my age is %v and my name is %v", ageOne, nameOne)
+	fmt.Println(savedString)
+
 }
