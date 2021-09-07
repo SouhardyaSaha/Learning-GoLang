@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 type Bill struct {
 	name  string
@@ -11,7 +14,7 @@ type Bill struct {
 func newBill(name string) Bill {
 	bill := Bill{
 		name:  name,
-		items: map[string]float64{"cake": 1.34, "coke": 3.21},
+		items: map[string]float64{},
 		tip:   0,
 	}
 
@@ -31,4 +34,23 @@ func (b Bill) format() string {
 	fs += fmt.Sprintf("%-25v ... $%0.2f \n", "total:", total)
 
 	return fs
+}
+
+func (bill *Bill) updateTip(tip float64) {
+
+	// (*bill).tip = tip  // No need to deference struct is automatically dereferenced
+	bill.tip = tip
+}
+
+func (bill *Bill) addItem(name string, price float64) {
+	bill.items[name] = price
+}
+
+func (bill *Bill) save() {
+	data := []byte(bill.format())
+	err := os.WriteFile("bills/"+bill.name+".txt", data, 0644)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println("Bill saved to file")
 }
