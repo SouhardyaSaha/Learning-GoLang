@@ -1,0 +1,13 @@
+orbitax-go-playground
+
+API
+
+1. Http Pipeline
+   a. JWT Token (Authentication and Authorization)
+2. Post Message in RabbitMQ (API, Consumer)
+3. Consumer
+   a. Subscribe to RabbitMQ
+   b. It should be compatible with existing c# api.
+4. MongoDB - CRUD: We need to find official library for GO
+5. JSON document read/write
+6. Redis Library
