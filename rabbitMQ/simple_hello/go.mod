@@ -1,4 +1,4 @@
-module rabbitmq
+module simple_hello
 
 go 1.17
 
